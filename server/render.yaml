@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: final-final-final-backend  # Matches your service name
+    env: node
+    rootDir: server  # Builds from server/
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PGUSER
+        fromDatabase:
+          name: custom-car-db  # Your DB name
+          property: user
+      - key: PGPASSWORD
+        fromDatabase:
+          name: custom-car-db
+          property: password
+      - key: PGHOST
+        fromDatabase:
+          name: custom-car-db
+          property: host
+      - key: PGPORT
+        fromDatabase:
+          name: custom-car-db
+          property: port
+      - key: PGDATABASE
+        fromDatabase:
+          name: custom-car-db
+          property: database
